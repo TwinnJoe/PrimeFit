@@ -1,5 +1,6 @@
 import { createStore } from "vuex";
 import axios from "axios";
+const API = import.meta.env.VITE_API_URL;
 
 export default createStore({
   state: {
@@ -25,7 +26,7 @@ export default createStore({
   actions: {
     async AllProducts({ commit }) {
       try {
-        const res = await fetch("http://localhost:3000/api/store");
+        const res = await fetch(`${API}/api/store`);
         if (!res.ok) throw new Error("Failed to fetch Products");
         commit("setStore", await res.json());
       } catch (error) {
@@ -35,7 +36,7 @@ export default createStore({
 
     async AllTrainers({ commit }) {
       try {
-        const res = await fetch("http://localhost:3000/api/trainers");
+        const res = await fetch(`${API}/api/trainers`);
         if (!res.ok) throw new Error("Failed to fetch Trainers");
         commit("setTrainers", await res.json());
       } catch (error) {
@@ -45,7 +46,7 @@ export default createStore({
 
     async AllPlans({ commit }) {
       try {
-        const res = await fetch("http://localhost:3000/api/plans");
+        const res = await fetch(`${API}/api/plans`);
         if (!res.ok) throw new Error("Failed to fetch Plans");
         commit("setPlans", await res.json());
       } catch (error) {
@@ -54,7 +55,7 @@ export default createStore({
     },
     async addUsers({ dispatch }, payload) {
       try {
-        await fetch("http://localhost:3000/api/users/register", {
+        await fetch(`${API}/api/users/register`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload),
@@ -65,7 +66,7 @@ export default createStore({
     },
     async updateUser({ commit, dispatch }, payload) {
     try {
-      const res = await fetch("http://localhost:3000/api/users/profile", {
+      const res = await fetch(`${API}/api/users/profile`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json"
@@ -78,8 +79,6 @@ export default createStore({
         throw new Error(errorData.message || "Failed to update profile");
       }
 
-      // After update, fetch latest user data
-      await dispatch('fetchUserByEmail', payload.email);
 
     } catch (error) {
       console.error("Error updating user profile:", error);
@@ -88,7 +87,7 @@ export default createStore({
   },
     async loginUser({ commit }, credentials) {
       try {
-        const res = await axios.post("http://localhost:3000/api/users/login", credentials);
+        const res = await axios.post(`${API}/api/users/login`, credentials);
         const { token, user } = res.data;
         localStorage.setItem("token", token);
         commit("setToken", token);
