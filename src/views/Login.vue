@@ -141,6 +141,7 @@
 <script>
 import axios from 'axios';
 import { mapActions } from 'vuex';
+const API = import.meta.env.VITE_API_URL;
 
 export default {
   name: "LoginView",
@@ -193,7 +194,7 @@ export default {
     async handleLogin() {
       this.errorMessage = '';
       try {
-        const response = await axios.post("http://localhost:3000/api/users/login", {
+        const response = await axios.post(`${API}/api/users/login`, {
           username: this.username,
           password: this.loginPassword,
         });
