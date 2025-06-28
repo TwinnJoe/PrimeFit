@@ -13,7 +13,7 @@ const pool = mysql.createPool({
   user: process.env.USER,
   password: process.env.PASSWORD,
   database: process.env.DATABASE,
-  port: process.env.DB_PORT || 12345, // Aiven's port (check your dashboard)
+  port: process.env.PORT || 13088,
   waitForConnections: true,
   connectionLimit: 10,
   ssl: {
