@@ -14,4 +14,8 @@ const pool = mysql.createPool({
     rejectUnauthorized: true
   }
 });
+
+pool.query("SELECT 1")
+  .then(() => console.log("✅ MySQL connected successfully from Render"))
+  .catch((err) => console.error("❌ DB connection failed from Render:", err));
 export default pool ;
