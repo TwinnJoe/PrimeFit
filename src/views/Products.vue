@@ -794,6 +794,9 @@ h1::after {
   .desktop-login {
     display: inline-block;
   }
+  .products {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 @media (max-width: 768px) {
