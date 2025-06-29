@@ -759,16 +759,11 @@ nav a:hover::after {
         font-size: 1rem;
     }
 
-    .categories {
+    .categories,
+    .product,
+    .card
+    {
         grid-template-columns: 1fr;
-    }
-
-    .product {
-        grid-template-columns: 1fr;
-    }
-
-    .card {
-        width: 240px;
     }
 
     .footer-content {
