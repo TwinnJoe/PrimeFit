@@ -539,6 +539,15 @@ h2::after {
 }
 /* Responsive adjustments */
 
+  @media (min-width: 1024px) {
+    .mobile-login {
+        display: none !important;
+    }
+
+    .desktop-login {
+        display: inline-block;
+    }
+}
 @media (max-width: 1024px) {
   .hero {
     height: 500px;
