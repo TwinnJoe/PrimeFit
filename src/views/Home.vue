@@ -758,7 +758,11 @@ nav a:hover::after {
         padding: 12px 25px;
         font-size: 1rem;
     }
-
+    
+    .tittle h2 {
+    font-size: 1rem;
+    }
+    
     .categories,
     .product,
     .card
