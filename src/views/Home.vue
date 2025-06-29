@@ -759,7 +759,7 @@ nav a:hover::after {
         font-size: 1rem;
     }
     
-    .title h2 {
+    .title {
     font-size: 1.3rem;
     }
     
