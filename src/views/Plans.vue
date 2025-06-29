@@ -83,7 +83,7 @@
     </div>
 
     <section class="benefits-section">
-      <h1>Why Choose PrimeFit</h1>
+      <h1 class="title">Why Choose PrimeFit</h1>
       <div class="benefits-grid">
         <div v-for="(reason, index) in reasons" :key="index" class="benefit-card">
           <div class="benefit-icon">
@@ -770,4 +770,11 @@ nav a:hover::after {
     max-width: none;
   }
 }
+  @media (max-width: 480px) {
+    
+    .title {
+    font-size: 1.3rem;
+    }  
+}
+
 </style>
