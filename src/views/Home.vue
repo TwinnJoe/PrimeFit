@@ -164,7 +164,7 @@ export default {
         },
         logout() {
       this.logoutUser();
-      this.$router.push("/login");
+      this.$router.push("/");
     },
         goToPlans() {
     if (this.isLoggedIn) {
