@@ -689,6 +689,10 @@ nav a:hover::after {
     .desktop-login {
         display: inline-block;
     }
+
+    .wrapper {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 @media (max-width: 768px) {
