@@ -271,7 +271,7 @@ export default {
       setTimeout(() => {
           this.showSuccessModal = false;
           this.showSuccessModal = false;
-          this.switchForm("/");
+          this.$router.push("/");
         }, 3000);
   } catch (error) {
     this.errorMessage = error.message || "Failed to update profile. Please try again.";
