@@ -638,8 +638,7 @@ h2::after {
   }
 
   .product-item {
-    padding: 0;
-    max-width: 256px;
+    grid-template-columns: 1fr;
   }
 
   .featured-products .product-item  {
