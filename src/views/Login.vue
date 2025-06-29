@@ -260,6 +260,13 @@ export default {
 
     try {
     await this.updateUser(payload);
+      // Step 2: Login using username and password
+    const loginPayload = {
+      username: this.fullName, // 👈 you said login must use name, not email
+      password: this.registerPassword, // make sure you stored this during registration
+    };
+      await this.$store.dispatch('loginUser', loginPayload);
+      
       this.showSuccessModal = true;
       setTimeout(() => {
           this.showSuccessModal = false;
