@@ -157,6 +157,7 @@ export default {
       confirmPassword: '',
       resetEmail: '',
       showSuccessModal: false,
+      modalMessage: '',       // Added modal message state
       errorMessage: '',
       fullName: '',
       age: '',
@@ -166,17 +167,17 @@ export default {
     };
   },
   created() {
-  const savedForm = localStorage.getItem('activeForm');
-  if (savedForm) {
-    this.activeForm = savedForm;
-    // Set sliderPosition accordingly:
-    if (savedForm === 'login') this.sliderPosition = '0%';
-    else if (savedForm === 'register') this.sliderPosition = '50%';
-    else this.sliderPosition = '100%';
-  }
-},
+    const savedForm = localStorage.getItem('activeForm');
+    if (savedForm) {
+      this.activeForm = savedForm;
+      if (savedForm === 'login') this.sliderPosition = '0%';
+      else if (savedForm === 'register') this.sliderPosition = '50%';
+      else this.sliderPosition = '100%';
+    }
+  },
   methods: {
     ...mapActions(['setToken', 'setUser', 'addUsers', 'updateUser']),
+    
     switchForm(form) {
       this.activeForm = form;
       localStorage.setItem('activeForm', form);
@@ -191,6 +192,13 @@ export default {
         this.sliderPosition = '100%';
       }
     },
+
+    // New helper method to open modal with a message
+    openModalWithMessage(message) {
+      this.modalMessage = message;
+      this.showSuccessModal = true;
+    },
+
     async handleLogin() {
       this.errorMessage = '';
       try {
@@ -200,15 +208,14 @@ export default {
         });
 
         if (response.data.token) {
-          // If the login is successful, store the token in localStorage and Vuex
           localStorage.setItem('token', response.data.token);
           this.setToken(response.data.token);
           this.setUser(response.data.user);
 
-          this.showSuccessModal = true; // Show success modal
+          this.openModalWithMessage('Logged In Successfully');  // Use modal with dynamic message
 
-          // Redirect after delay
           setTimeout(() => {
+            this.showSuccessModal = false;
             this.$router.push("/");
           }, 2000);
         }
@@ -216,75 +223,79 @@ export default {
         this.errorMessage = error.response?.data?.message || "Invalid username or password. Please try again.";
       }
     },
+
     async handleRegister() {
-      // Handle registration logic here
       this.errorMessage = '';
 
-  if (this.registerPassword !== this.confirmPassword) {
-    this.errorMessage = "Passwords do not match.";
-    return;
-  }
+      if (this.registerPassword !== this.confirmPassword) {
+        this.errorMessage = "Passwords do not match.";
+        return;
+      }
 
+      if (!this.registerEmail || !this.registerPassword) {
+        this.errorMessage = "Please complete all required fields.";
+        return;
+      }
 
-  // Validate all fields
-  if (!this.registerEmail || !this.registerPassword) {
-    this.errorMessage = "Please complete all required fields.";
-    return;
-  }
+      try {
+        await this.$store.dispatch("addUsers", {
+          email: this.registerEmail,
+          password: this.registerPassword,
+        });
 
-  try {
-    await this.$store.dispatch("addUsers",{
-      email: this.registerEmail,
-      password: this.registerPassword,
-    });
-      this.showSuccessModal = true;
-      setTimeout(() => {
-      this.showSuccessModal = false;
-      this.switchForm("membership");
-    }, 3000);
-  } catch (error) {
-    this.errorMessage = error.message || "Registration failed.";
-  }
-      
+        this.openModalWithMessage('Registered Successfully');  // Modal message changed
+
+        setTimeout(() => {
+          this.showSuccessModal = false;
+          this.switchForm("membership");
+        }, 3000);
+      } catch (error) {
+        this.errorMessage = error.message || "Registration failed.";
+      }
     },
+
     async handleMembership() {
       this.errorMessage = '';
-    const payload = {
-      name: this.fullName,
-      email: this.registerEmail,  // saved email from registration
-      address: this.address || "N/A",
-      age: this.age,
-      gender: this.gender,
-      phone: this.phone,
-    };
+      const payload = {
+        name: this.fullName,
+        email: this.registerEmail,
+        address: this.address || "N/A",
+        age: this.age,
+        gender: this.gender,
+        phone: this.phone,
+      };
 
-    try {
-    await this.updateUser(payload);
-      // Step 2: Login using username and password
-    const loginPayload = {
-      username: this.fullName, // 👈 you said login must use name, not email
-      password: this.registerPassword, // make sure you stored this during registration
-    };
-      setTimeout(async () => {
       try {
-        await this.$store.dispatch('loginUser', loginPayload);
+        await this.updateUser(payload);
 
-        this.activeForm = 'login';
-        this.showSuccessModal = false;
-        this.$router.push("/");
+        const loginPayload = {
+          username: this.fullName,
+          password: this.registerPassword,
+        };
+
+        setTimeout(async () => {
+          try {
+            await this.$store.dispatch('loginUser', loginPayload);
+
+            this.activeForm = 'login';
+            this.openModalWithMessage('Subscribed Successfully');  // Modal message for subscription
+
+            this.$router.push("/");
+          } catch (error) {
+            this.errorMessage = "Auto-login failed after subscription.";
+            this.showSuccessModal = false;
+          }
+        }, 3000);
+
       } catch (error) {
-        this.errorMessage = "Auto-login failed after subscription.";
-        this.showSuccessModal = false;
+        this.errorMessage = error.message || "Failed to update profile. Please try again.";
       }
-    }, 3000);
-  } catch (error) {
-    this.errorMessage = error.message || "Failed to update profile. Please try again.";
-  }
-},
+    },
+
     handleReset() {
-      // Handle reset logic here
       console.log('Reset:', this.resetEmail);
     },
+
     closeModal() {
       this.showSuccessModal = false;
     },
