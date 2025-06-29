@@ -479,9 +479,11 @@ h1::after {
 }
 
 .fixed-height {
-  height: 100px; 
-  object-fit: cover;
-  width: 100%;
+  height: 200px; /* or whatever fixed height you want */
+  object-fit: contain;
+  width: auto;
+  display: block;
+  margin: 0 auto;
 }
 
 .product-card h2 {
