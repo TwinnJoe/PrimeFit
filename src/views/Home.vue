@@ -770,10 +770,6 @@ nav a:hover::after {
         grid-template-columns: 1fr;
     }
 
-    .footer-section {
-        text-align: center;
-    }
-
     .footer-section h3::after {
         left: 50%;
         transform: translateX(-50%);
