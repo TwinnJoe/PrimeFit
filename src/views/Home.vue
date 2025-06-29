@@ -764,7 +764,7 @@ nav a:hover::after {
     }
 
     .product {
-        max-width: 240px;
+        grid-template-columns: 1fr;
     }
 
     .card {
