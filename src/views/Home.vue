@@ -164,6 +164,7 @@ export default {
         },
         logout() {
       this.logoutUser();
+      localStorage.removeItem('activeForm');  // Clear saved form state to reset login view
       this.$router.push("/");
     },
         goToPlans() {
