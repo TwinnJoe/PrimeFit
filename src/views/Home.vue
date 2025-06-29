@@ -4,17 +4,17 @@
         <header>
             <div class="navbar-left">
                 <h1><a href="#" class="brand-name">Prime<span>Fit</span></a></h1>
-
                 <nav :class="{ open: isMenuOpen }">
                     <router-link to="/">Home</router-link>
                     <router-link to="/shop">Shop</router-link>
                     <router-link to="/plans">Subscriptions</router-link>
-                    <router-link to="/login" class="mobile-login">Login</router-link>
+                    <router-link v-if="!isLoggedIn" to="/login" class="mobile-login">Login</router-link><a v-else href="#" class="mobile-login" @click.prevent="logout">Logout</a>
                 </nav>
             </div>
 
             <div class="navbar-right">
-                <button class="login-btn" @click="Login">Log In</button>
+                <button class="login-btn" v-if="!isLoggedIn" @click="Login">Log In</button>
+                <button class="login-btn" v-else @click="logout">Log Out</button>
                 <div class="burger" @click="toggleMenu">
                     <span></span>
                     <span></span>
@@ -137,11 +137,15 @@ export default {
     computed: {
         ...mapState({
             products: state => state.store,
-            trainers: state => state.trainers
+            trainers: state => state.trainers,
+            token: state => state.token
         }),
         safeProducts() {
     return Array.isArray(this.products) ? this.products.slice(0, 4) : [];
-  }
+  },
+        isLoggedIn() {
+      return this.token !== null;
+    }
     },
     methods: {
 
@@ -158,6 +162,10 @@ export default {
         Login() {
             this.$router.push("/login");
         },
+        logout() {
+      this.logoutUser();
+      this.$router.push("/login");
+    },
         toggleMenu() {
             this.isMenuOpen = !this.isMenuOpen;
         }
