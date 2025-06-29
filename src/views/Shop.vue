@@ -97,22 +97,22 @@ export default {
         {
           id: 1,
           name: "Performance T-Shirt",
-          image: "src/assets/images/Featured/perfomance T-shirt.jpeg"
+          image: "https://github.com/TwinnJoe/PrimeFit/blob/main/src/assets/images/Featured/perfomance%20T-shirt.jpeg?raw=true"
         },
         {
           id: 2,
           name: "Training Shorts",
-          image: "src/assets/images/Featured/training shorts.jpeg"
+          image: "https://github.com/TwinnJoe/PrimeFit/blob/main/src/assets/images/Featured/training%20shorts.jpeg?raw=true"
         },
         {
           id: 3,
           name: "Compression Leggings",
-          image: "src/assets/images/Featured/compression-leggings.jpeg"
+          image: "https://github.com/TwinnJoe/PrimeFit/blob/main/src/assets/images/Featured/compression-leggings.jpeg?raw=true"
         },
         {
           id: 4,
           name: "Own the Run Leggings",
-          image: "src/assets/images/Featured/men-leggings.jpeg"
+          image: "https://github.com/TwinnJoe/PrimeFit/blob/main/src/assets/images/Featured/men-leggings.jpeg?raw=true"
         }
       ]
     };
