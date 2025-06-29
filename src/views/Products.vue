@@ -46,7 +46,7 @@
       <div class="products">
         <div class="product-card" v-for="product in filteredProducts" :key="product.name">
           <div class="product-image">
-            <img v-bind:src="product.image_url.images[0]" :alt="product.name" />
+            <img v-bind:src="product.image_url.images[0]" :alt="product.name" :class="{ 'fixed-height': product.category === 'Fitness Trackers' }"/>
           </div>
           <h2>{{ product.name }}</h2>
           <span>R{{ (product.price * 1000).toLocaleString("en-ZA", {
@@ -476,6 +476,12 @@ h1::after {
 
 .product-card:hover .product-image img {
   transform: scale(1.05);
+}
+
+.fixed-height {
+  height: 250px; 
+  object-fit: cover;
+  width: 100%;
 }
 
 .product-card h2 {
