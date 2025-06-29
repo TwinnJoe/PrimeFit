@@ -45,8 +45,8 @@
       </div>
       <div class="products">
         <div class="product-card" v-for="product in filteredProducts" :key="product.name">
-          <div class="product-image">
-            <img v-bind:src="product.image_url.images[0]" :alt="product.name" :class="{ 'fixed-height': product.category === 'Fitness Trackers' }"/>
+          <div class="product-image" :class="{ 'fixed-height': product.category === 'Fitness Trackers' }">
+            <img v-bind:src="product.image_url.images[0]" :alt="product.name"/>
           </div>
           <h2>{{ product.name }}</h2>
           <span>R{{ (product.price * 1000).toLocaleString("en-ZA", {
@@ -478,10 +478,16 @@ h1::after {
   transform: scale(1.05);
 }
 
-.fixed-height {
-  height: 200px; /* or whatever fixed height you want */
-  object-fit: contain;
-  width: auto;
+/* Only fitness tracker images */
+.product-image.fixed-height {
+  height: 400px; /* fixed height only for fitness tracker container */
+  overflow: visible; /* optional */
+}
+
+.product-image.fixed-height img {
+  height: 100%;    /* fill container height */
+  width: auto;     /* maintain aspect ratio */
+  object-fit: contain; /* don't crop, scale down */
   display: block;
   margin: 0 auto;
 }
