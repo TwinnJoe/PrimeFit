@@ -29,7 +29,7 @@
                 <div class="hero-text">
                     <h1>Your Complete Fitness Solution</h1>
                     <p>All from the comfort of your home!</p>
-                    <button @click="Login">Subscribe Now</button>
+                    <button @click="goToPlans">Subscribe Now</button>
                 </div>
             </div>
             <div class="categories">
@@ -149,7 +149,7 @@ export default {
     },
     methods: {
 
-        ...mapActions(['AllProducts', 'AllTrainers']),
+        ...mapActions(['AllProducts', 'AllTrainers', 'logoutUser']),
 
         openModal(trainer) {
             this.selectedTrainer = trainer;
@@ -166,6 +166,13 @@ export default {
       this.logoutUser();
       this.$router.push("/login");
     },
+        goToPlans() {
+    if (this.isLoggedIn) {
+      this.$router.push("/plans");
+    } else {
+      this.$router.push("/login");
+    }
+  },
         toggleMenu() {
             this.isMenuOpen = !this.isMenuOpen;
         }
