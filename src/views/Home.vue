@@ -34,19 +34,19 @@
             </div>
             <div class="categories">
                 <div class="category">
-                    <img src="../assets/images/Categories/category-gym equipment.jpg" alt="Equipment Image" />
+                    <img src="https://github.com/TwinnJoe/PrimeFit/blob/main/src/assets/images/Categories/category-gym%20equipment.jpg?raw=true" alt="Equipment Image" />
                     <h3>Gym Equipment</h3>
                 </div>
                 <div class="category">
-                    <img src="../assets/images/Categories/category-apparl.jpg" alt="Apparel Image" />
+                    <img src="https://github.com/TwinnJoe/PrimeFit/blob/main/src/assets/images/Categories/category-apparl.jpg?raw=true" alt="Apparel Image" />
                     <h3>Gym Apparel</h3>
                 </div>
                 <div class="category">
-                    <img src="../assets/images/Categories/acccesories_category.jpg" alt="Accessories Image" />
+                    <img src="https://github.com/TwinnJoe/PrimeFit/blob/main/src/assets/images/Categories/acccesories_category.jpg?raw=true" alt="Accessories Image" />
                     <h3>Accessories</h3>
                 </div>
                 <div class="category">
-                    <img src="../assets/images/Categories/category-training.jpg" alt="Training Image" />
+                    <img src="https://github.com/TwinnJoe/PrimeFit/blob/main/src/assets/images/Categories/category-training.jpg?raw=true" alt="Training Image" />
                     <h3>Personal Training</h3>
                 </div>
             </div>
@@ -60,7 +60,6 @@
                     <img :src="product.image_url.images[0]" alt="Product Image" />
                     <h2>{{ product.name }}</h2>
                     <p>R{{ product.price }}</p>
-                    <button @click="Login">Buy Now</button>
                 </div>
 
             </div>
