@@ -265,23 +265,18 @@ export default {
       username: this.fullName, // 👈 you said login must use name, not email
       password: this.registerPassword, // make sure you stored this during registration
     };
-      await this.$store.dispatch('loginUser', loginPayload);
-      this.activeForm = 'login';
-      
-      this.showSuccessModal = false;
-      setTimeout(() => {
-          try {
-    await this.$store.dispatch('loginUser', loginPayload);
-    
-    this.activeForm = 'login';   // Reset form state to prevent layout issues
-    this.showSuccessModal = false; // Hide modal before redirect
-    
-    this.$router.push("/");
-  } catch (error) {
-    this.errorMessage = "Auto-login failed after subscription.";
-    this.showSuccessModal = false;
-  }
-        }, 3000);
+      setTimeout(async () => {
+      try {
+        await this.$store.dispatch('loginUser', loginPayload);
+
+        this.activeForm = 'login';
+        this.showSuccessModal = false;
+        this.$router.push("/");
+      } catch (error) {
+        this.errorMessage = "Auto-login failed after subscription.";
+        this.showSuccessModal = false;
+      }
+    }, 3000);
   } catch (error) {
     this.errorMessage = error.message || "Failed to update profile. Please try again.";
   }
