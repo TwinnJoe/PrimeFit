@@ -316,6 +316,30 @@ button:hover {
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
+  .login-btn {
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    border: 2px solid crimson;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.login-btn:hover {
+    background-color: crimson;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(220, 20, 60, 0.3);
+}
+
+.login-btn:active {
+    transform: translateY(-1px);
+}
+
 .collections {
   display: flex;
   justify-content: space-between;
