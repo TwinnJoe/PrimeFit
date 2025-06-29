@@ -479,7 +479,7 @@ h1::after {
 }
 
 .fixed-height {
-  height: 250px; 
+  height: 100px; 
   object-fit: cover;
   width: 100%;
 }
