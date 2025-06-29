@@ -759,8 +759,8 @@ nav a:hover::after {
         font-size: 1rem;
     }
     
-    .tittle h2 {
-    font-size: 1rem;
+    .title h2 {
+    font-size: 1.3rem;
     }
     
     .categories,
