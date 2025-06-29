@@ -561,14 +561,6 @@ h2::after {
   .collection-item {
     height: 350px;
   }
-
-  .mobile-login {
-        display: none !important;
-    }
-
-    .desktop-login {
-        display: inline-block;
-    }
 }
 
 @media (max-width: 768px) {
