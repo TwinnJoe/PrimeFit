@@ -769,11 +769,6 @@ nav a:hover::after {
     .footer-content {
         grid-template-columns: 1fr;
     }
-
-    .footer-section h3::after {
-        left: 50%;
-        transform: translateX(-50%);
-    }
 }
 
 /* Burger animation */
