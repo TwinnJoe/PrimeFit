@@ -21,7 +21,7 @@ const registerUserCon = async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, 10);
 
     // Call your DB function to insert user with minimal fields
-    await addUser(null, email, hashedPassword, null, null, null, null);
+    await addUser(email.split('@')[0], email, hashedPassword, null, null, null, null);
 
     res.status(201).json({ message: 'User registered successfully' });
   } catch (error) {
