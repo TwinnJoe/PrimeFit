@@ -6,6 +6,8 @@ PrimeFit combines e-commerce convenience with personalized fitness solutions.
 
 ---
 
+🔗 **Live Demo**: [https://primefit.infy.uk](https://gymprimefit.netlify.app/)
+
 ## 🌟 Key Features
 
 ### 🔐 Account Management & Authentication
