@@ -5,8 +5,14 @@ and shop for workout attire—all from the comfort of their home. Designed to of
 PrimeFit combines e-commerce convenience with personalized fitness solutions.
 
 ---
+[![Live Demo](https://img.shields.io/badge/demo-online-orange)](https://gymprimefit.netlify.app/)
+---
 
-🔗 **Live Demo**: [https://primefit.infy.uk](https://gymprimefit.netlify.app/)
+## 👤 Developer
+
+- **Sinovuyo Joe**
+
+---
 
 ## 🌟 Key Features
 
