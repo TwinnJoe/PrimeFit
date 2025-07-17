@@ -873,6 +873,11 @@ h1::after {
 }
 
 @media (max-width: 480px) {
+
+.tabs {
+    flex-direction: column;
+  }
+
   .product-card {
     width: 100%;
   }
