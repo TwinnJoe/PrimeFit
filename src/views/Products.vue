@@ -876,10 +876,21 @@ h1::after {
 
 .tabs {
     flex-direction: column;
+    width: 100%;
+  }
+
+  .filters {
+    width: 100%;
+  }
+
+  .filters select {
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .product-card {
     width: 100%;
+    max-width: none;
   }
 
   .modal-right img {
