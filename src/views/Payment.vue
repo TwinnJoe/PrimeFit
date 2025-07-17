@@ -10,11 +10,11 @@
         <div class="summary-row">
           <span>Items:</span>
           <span>{{ orderSummary.totalQuantity }}</span>
-          <span>R{{ orderSummary.subtotal.toFixed(2) }}</span>
+          <span>R{{ orderSummary.subtotal.toLocaleString("en-ZA", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) }}</span>
         </div>
         <div class="summary-row">
           <span>Tax:</span>
-          <span>R{{ orderSummary.tax.toFixed(2) }}</span>
+          <span>R{{ orderSummary.tax.toLocaleString("en-ZA", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) }}</span>
         </div>
         <div class="summary-row">
           <span>Delivery:</span>
@@ -23,7 +23,7 @@
         <hr />
         <div class="summary-row total">
           <span>Total:</span>
-          <span>R{{ orderSummary.total.toFixed(2) }}</span>
+          <span>R{{ orderSummary.total.toLocaleString("en-ZA", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) }}</span>
         </div>
       </div>
 
@@ -59,7 +59,7 @@
         <button type="submit" class="complete-payment" :disabled="!isFormValid">Complete Payment</button>
       </form>
 
-      <p class="footer-note">Secure payment processed by Payfast.</p>
+      <p class="footer-note">Secure payment processed by Payright.</p>
       <p class="footer">© 2025 PrimeFit. All rights reserved.</p>
     </div>
   </div>

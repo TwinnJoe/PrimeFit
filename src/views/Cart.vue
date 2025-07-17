@@ -10,7 +10,7 @@
           <div class="product-details">
             <h2>{{ product.name }}</h2>
             <p>In Stock: {{ product.stock }}, {{ product.supplier }}</p>
-            <span>R{{ (product.price * 1000).toLocaleString("en-ZA", {
+            <span>R{{ Number(product.price).toLocaleString("en-ZA", {
               minimumFractionDigits: 2, maximumFractionDigits:
               2 }) }}</span>
           </div>
@@ -22,7 +22,6 @@
           </div>
         </div>
       </div>
-      <div class="wrapper">
         <div class="order-summary">
           <h2>Order Summary</h2>
           <div v-for="(product, index) in cart" :key="index" class="summary-row">
@@ -40,7 +39,7 @@
           </div>
           <div class="summary-row">
             <span>Tax</span>
-            <span>R{{ tax.toFixed(2) }}</span>
+            <span>R{{ tax.toLocaleString('en-ZA', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) }}</span>
           </div>
           <hr />
           <div class="summary-row total">
@@ -55,7 +54,6 @@
             <i class="fa-brands fa-cc-paypal"></i>
           </div>
         </div>
-      </div>
     </div>
 
     <!-- Toast Notification -->
@@ -76,7 +74,7 @@ export default {
   },
   computed: {
     subtotal() {
-      return this.cart.reduce((sum, product) => sum + product.price * product.quantity, 0) * 1000;
+      return this.cart.reduce((sum, product) => sum + product.price * product.quantity, 0);
     },
     tax() {
       return this.subtotal * 0.15; // 15% tax rate
@@ -386,7 +384,7 @@ hr {
 }
 
 /* Responsive Styles */
-@media only screen and (max-width: 992px) {
+@media only screen and (max-width: 1024px) {
   .cart-items {
     flex-direction: column;
     width: 95%;
@@ -419,37 +417,42 @@ hr {
   }
 }
 
-@media only screen and (max-width: 576px) {
+@media only screen and (max-width: 480px) {
   #body {
     padding: 1rem;
   }
-  
+
   .cart-items {
-    padding: 1.5rem;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 1rem;
+    gap: 2rem;
   }
-  
+
   .product {
     flex-direction: column;
     align-items: flex-start;
   }
-  
+
   .product-image {
     margin-bottom: 1rem;
   }
-  
+
   .product-details {
     width: 100%;
     padding: 0;
     margin-bottom: 1rem;
   }
-  
+
   .quantity-controls {
     width: 100%;
     justify-content: space-between;
   }
-  
+
   .order-summary {
     padding: 1.25rem;
+    width: 100%;
   }
 }
+
 </style>

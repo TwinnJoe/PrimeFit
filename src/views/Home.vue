@@ -8,7 +8,8 @@
                     <router-link to="/">Home</router-link>
                     <router-link to="/shop">Shop</router-link>
                     <router-link to="/plans">Subscriptions</router-link>
-                    <router-link v-if="!isLoggedIn" to="/login" class="mobile-login">Login</router-link><a v-else href="#" class="mobile-login" @click.prevent="logout">Logout</a>
+                    <router-link v-if="!isLoggedIn" to="/login" class="mobile-login">Login</router-link><a v-else
+                        href="#" class="mobile-login" @click.prevent="logout">Logout</a>
                 </nav>
             </div>
 
@@ -34,19 +35,23 @@
             </div>
             <div class="categories">
                 <div class="category">
-                    <img src="https://github.com/TwinnJoe/PrimeFit/blob/main/src/assets/images/Categories/category-gym%20equipment.jpg?raw=true" alt="Equipment Image" />
+                    <img src="https://github.com/TwinnJoe/PrimeFit/blob/main/src/assets/images/Categories/category-gym%20equipment.jpg?raw=true"
+                        alt="Equipment Image" />
                     <h3>Gym Equipment</h3>
                 </div>
                 <div class="category">
-                    <img src="https://github.com/TwinnJoe/PrimeFit/blob/main/src/assets/images/Categories/category-apparl.jpg?raw=true" alt="Apparel Image" />
+                    <img src="https://github.com/TwinnJoe/PrimeFit/blob/main/src/assets/images/Categories/category-apparl.jpg?raw=true"
+                        alt="Apparel Image" />
                     <h3>Gym Apparel</h3>
                 </div>
                 <div class="category">
-                    <img src="https://github.com/TwinnJoe/PrimeFit/blob/main/src/assets/images/Categories/acccesories_category.jpg?raw=true" alt="Accessories Image" />
+                    <img src="https://github.com/TwinnJoe/PrimeFit/blob/main/src/assets/images/Categories/acccesories_category.jpg?raw=true"
+                        alt="Accessories Image" />
                     <h3>Accessories</h3>
                 </div>
                 <div class="category">
-                    <img src="https://github.com/TwinnJoe/PrimeFit/blob/main/src/assets/images/Categories/category-training.jpg?raw=true" alt="Training Image" />
+                    <img src="https://github.com/TwinnJoe/PrimeFit/blob/main/src/assets/images/Categories/category-training.jpg?raw=true"
+                        alt="Training Image" />
                     <h3>Personal Training</h3>
                 </div>
             </div>
@@ -141,11 +146,11 @@ export default {
             token: state => state.token
         }),
         safeProducts() {
-    return Array.isArray(this.products) ? this.products.slice(0, 4) : [];
-  },
+            return Array.isArray(this.products) ? this.products.slice(0, 4) : [];
+        },
         isLoggedIn() {
-      return this.token !== null;
-    }
+            return this.token !== null;
+        }
     },
     methods: {
 
@@ -163,17 +168,17 @@ export default {
             this.$router.push("/login");
         },
         logout() {
-      this.logoutUser();
-      localStorage.removeItem('activeForm');  // Clear saved form state to reset login view
-      this.$router.push("/");
-    },
+            this.logoutUser();
+            localStorage.removeItem('activeForm');  // Clear saved form state to reset login view
+            this.$router.push("/");
+        },
         goToPlans() {
-    if (this.isLoggedIn) {
-      this.$router.push("/plans");
-    } else {
-      this.$router.push("/login");
-    }
-  },
+            if (this.isLoggedIn) {
+                this.$router.push("/plans");
+            } else {
+                this.$router.push("/login");
+            }
+        },
         toggleMenu() {
             this.isMenuOpen = !this.isMenuOpen;
         }
@@ -691,8 +696,8 @@ nav a:hover::after {
     }
 
     .wrapper {
-    grid-template-columns: repeat(4, 1fr);
-  }
+        grid-template-columns: repeat(4, 1fr);
+    }
 }
 
 @media (max-width: 768px) {
@@ -778,18 +783,14 @@ nav a:hover::after {
         padding: 12px 25px;
         font-size: 1rem;
     }
-    
+
     .title {
-    font-size: 1.3rem;
-    }
-    
-    .categories,
-    .product,
-    .card
-    {
-        grid-template-columns: 1fr;
+        font-size: 1.3rem;
     }
 
+    .categories,
+    .featured-products,
+    .wrapper,
     .footer-content {
         grid-template-columns: 1fr;
     }

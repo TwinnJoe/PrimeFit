@@ -141,7 +141,7 @@ export default {
 </script>
 
 <style scoped>
-/* Improved styling starts here */
+
 #body {
   font-family: 'Poppins', 'Segoe UI', Roboto, sans-serif;
   background-color: #1a1a1a;
@@ -662,11 +662,11 @@ h2::after {
     font-size: 1rem;
   }
 
-  .product-item {
+  .featured-products  {
     grid-template-columns: 1fr;
   }
 
-  .featured-products .product-item  {
+  .product-item {
     text-align: center;
   }
 
