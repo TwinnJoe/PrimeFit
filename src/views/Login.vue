@@ -157,7 +157,7 @@ export default {
       confirmPassword: '',
       resetEmail: '',
       showSuccessModal: false,
-      modalMessage: '',       // Added modal message state
+      modalMessage: '',       
       errorMessage: '',
       fullName: '',
       age: '',
@@ -202,7 +202,7 @@ export default {
     async handleLogin() {
       this.errorMessage = '';
       try {
-        const response = await axios.post(`${API}/api/users/login`, {
+        const response = await axios.post(`${API}users/login`, {
           username: this.username,
           password: this.loginPassword,
         });

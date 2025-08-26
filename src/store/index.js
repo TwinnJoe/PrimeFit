@@ -26,7 +26,7 @@ export default createStore({
   actions: {
     async AllProducts({ commit }) {
       try {
-        const res = await fetch(`${API}/api/store`);
+        const res = await fetch(`${API}store`);
         if (!res.ok) throw new Error("Failed to fetch Products");
         commit("setStore", await res.json());
       } catch (error) {
@@ -36,7 +36,7 @@ export default createStore({
 
     async AllTrainers({ commit }) {
       try {
-        const res = await fetch(`${API}/api/trainers`);
+        const res = await fetch(`${API}trainers`);
         if (!res.ok) throw new Error("Failed to fetch Trainers");
         commit("setTrainers", await res.json());
       } catch (error) {
@@ -46,7 +46,7 @@ export default createStore({
 
     async AllPlans({ commit }) {
       try {
-        const res = await fetch(`${API}/api/plans`);
+        const res = await fetch(`${API}plans`);
         if (!res.ok) throw new Error("Failed to fetch Plans");
         commit("setPlans", await res.json());
       } catch (error) {
@@ -55,7 +55,7 @@ export default createStore({
     },
     async addUsers({ dispatch }, payload) {
       try {
-        await fetch(`${API}/api/users/register`, {
+        await fetch(`${API}users/register`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload),
@@ -66,7 +66,7 @@ export default createStore({
     },
     async updateUser({ commit, dispatch }, payload) {
     try {
-      const res = await fetch(`${API}/api/users/profile`, {
+      const res = await fetch(`${API}users/profile`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json"
@@ -87,7 +87,7 @@ export default createStore({
   },
     async loginUser({ commit }, credentials) {
       try {
-        const res = await axios.post(`${API}/api/users/login`, credentials);
+        const res = await axios.post(`${API}users/login`, credentials);
         const { token, user } = res.data;
         localStorage.setItem("token", token);
         commit("setToken", token);
