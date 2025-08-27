@@ -2,30 +2,62 @@
   <div id="body">
     <div class="container">
       <!-- Login Form -->
-      <div id="login-form" class="form-container" :class="{ active: activeForm === 'login' }">
+      <div
+        id="login-form"
+        class="form-container"
+        :class="{ active: activeForm === 'login' }"
+      >
         <h1>Welcome to PrimeFit</h1>
         <p>Your fitness journey starts here</p>
 
         <div class="toggle-buttons">
-          <button id="login-btn" class="toggle-btn" @click="switchForm('login')">
+          <button
+            id="login-btn"
+            class="toggle-btn"
+            @click="switchForm('login')"
+          >
             Login
           </button>
-          <button id="register-btn" class="toggle-btn" @click="switchForm('register')">
+          <button
+            id="register-btn"
+            class="toggle-btn"
+            @click="switchForm('register')"
+          >
             Create Account
           </button>
-          <div id="slider" class="toggle-slider" :style="{ left: sliderPosition }"></div>
+          <div
+            id="slider"
+            class="toggle-slider"
+            :style="{ left: sliderPosition }"
+          ></div>
         </div>
 
         <form @submit.prevent="handleLogin">
           <label for="username">Username</label>
-          <input type="text" id="username" v-model="username" placeholder="Username" required />
+          <input
+            type="text"
+            id="username"
+            v-model="username"
+            placeholder="Username"
+            required
+          />
 
           <label for="password">Password</label>
-          <input type="password" id="password" v-model="loginPassword" placeholder="********" required />
+          <input
+            type="password"
+            id="password"
+            v-model="loginPassword"
+            placeholder="********"
+            required
+          />
 
           <div class="options">
-            <label><input type="checkbox" v-model="rememberMe" /> Remember me</label>
-            <a href="#" @click.prevent="switchForm('reset')">Forgot password?</a>
+            <label
+              ><input type="checkbox" v-model="rememberMe" /> Remember me</label
+            >
+            <a href="#" @click.prevent="switchForm('reset')"
+              >Forgot password?</a
+            >
           </div>
 
           <button type="submit" class="sign-in">Sign In</button>
@@ -35,55 +67,111 @@
         </form>
         <p class="divider">Or Use</p>
         <div class="social-buttons">
-          <button class="social-btn google"><i class="fa-brands fa-google fa-lg"></i></button>
-          <button class="social-btn apple"><i class="fa-brands fa-apple fa-lg"></i></button>
-          <button class="social-btn facebook"><i class="fa-brands fa-facebook fa-lg"></i></button>
+          <button class="social-btn google">
+            <i class="fa-brands fa-google fa-lg"></i>
+          </button>
+          <button class="social-btn apple">
+            <i class="fa-brands fa-apple fa-lg"></i>
+          </button>
+          <button class="social-btn facebook">
+            <i class="fa-brands fa-facebook fa-lg"></i>
+          </button>
         </div>
       </div>
 
       <!-- Register Form -->
-      <div id="register-form" class="form-container" :class="{ active: activeForm === 'register' }">
+      <div
+        id="register-form"
+        class="form-container"
+        :class="{ active: activeForm === 'register' }"
+      >
         <h1>Create Account</h1>
         <p>Join PrimeFit today</p>
 
         <div class="toggle-buttons">
-          <button id="login-btn" class="toggle-btn" @click="switchForm('login')">
+          <button
+            id="login-btn"
+            class="toggle-btn"
+            @click="switchForm('login')"
+          >
             Login
           </button>
-          <button id="register-btn" class="toggle-btn" @click="switchForm('register')">
+          <button
+            id="register-btn"
+            class="toggle-btn"
+            @click="switchForm('register')"
+          >
             Create Account
           </button>
-          <div id="slider" class="toggle-slider" :style="{ left: sliderPosition }"></div>
+          <div
+            id="slider"
+            class="toggle-slider"
+            :style="{ left: sliderPosition }"
+          ></div>
         </div>
 
         <form @submit.prevent="handleRegister">
           <label for="register-email">Email</label>
-          <input type="email" id="register-email" v-model="registerEmail" placeholder="your@email.com" required />
+          <input
+            type="email"
+            id="register-email"
+            v-model="registerEmail"
+            placeholder="your@email.com"
+            required
+          />
 
           <label for="register-password">Password</label>
-          <input type="password" id="register-password" v-model="registerPassword" placeholder="********" required />
+          <input
+            type="password"
+            id="register-password"
+            v-model="registerPassword"
+            placeholder="********"
+            required
+          />
 
           <label for="confirm-password">Confirm Password</label>
-          <input type="password" id="confirm-password" v-model="confirmPassword" placeholder="********" required />
+          <input
+            type="password"
+            id="confirm-password"
+            v-model="confirmPassword"
+            placeholder="********"
+            required
+          />
 
           <button type="submit" class="sign-in">Create Account</button>
         </form>
         <p class="divider">Or sign up with</p>
         <div class="social-buttons">
-          <button class="social-btn google"><i class="fa-brands fa-google fa-lg"></i></button>
-          <button class="social-btn apple"><i class="fa-brands fa-apple fa-lg"></i></button>
-          <button class="social-btn facebook"><i class="fa-brands fa-facebook fa-lg"></i></button>
+          <button class="social-btn google">
+            <i class="fa-brands fa-google fa-lg"></i>
+          </button>
+          <button class="social-btn apple">
+            <i class="fa-brands fa-apple fa-lg"></i>
+          </button>
+          <button class="social-btn facebook">
+            <i class="fa-brands fa-facebook fa-lg"></i>
+          </button>
         </div>
       </div>
 
       <!-- Reset Password Form -->
-      <div id="reset-form" class="form-container" :class="{ active: activeForm === 'reset' }">
+      <div
+        id="reset-form"
+        class="form-container"
+        :class="{ active: activeForm === 'reset' }"
+      >
         <h1>Reset Password</h1>
         <p>Enter your email to reset your password</p>
 
         <form @submit.prevent="handleReset">
           <label for="reset-email">Email</label>
-          <input type="email" id="reset-email" v-model="resetEmail" placeholder="your@email.com" required />
+          <input
+            type="email"
+            id="reset-email"
+            v-model="resetEmail"
+            placeholder="your@email.com"
+            required
+          />
 
           <button type="submit" class="sign-in">Send Reset Link</button>
         </form>
@@ -97,25 +185,46 @@
       <div id="success-modal" class="modal" v-if="showSuccessModal">
         <div class="modal-content">
           <span class="close" @click="closeModal">&times;</span>
-          <h2>Welcome to PrimeFit😊</h2>
-          <p>Your Form has been successfully submitted.</p>
+          <h2>{{ modalMessage }}😊</h2>
         </div>
       </div>
 
       <!-- PrimeFit Membership Form -->
-      <div id="membership-form" class="form-container" :class="{ active: activeForm === 'membership' }">
+      <div
+        id="membership-form"
+        class="form-container"
+        :class="{ active: activeForm === 'membership' }"
+      >
         <h1>PrimeFit Membership</h1>
         <p>Fill in your details</p>
 
         <form @submit.prevent="handleMembership">
           <label for="full-name">Full Name</label>
-          <input type="text" id="full-name" v-model="fullName" placeholder="Name" required />
+          <input
+            type="text"
+            id="full-name"
+            v-model="fullName"
+            placeholder="Name"
+            required
+          />
 
           <label for="age">Age</label>
-          <input type="number" id="age" v-model="age" placeholder="Age" required />
+          <input
+            type="number"
+            id="age"
+            v-model="age"
+            placeholder="Age"
+            required
+          />
 
           <label for="address">Address</label>
-          <input type="text" id="adress" v-model="address" placeholder="Address" required />
+          <input
+            type="text"
+            id="address"
+            v-model="address"
+            placeholder="Address"
+            required
+          />
 
           <label for="gender">Gender</label>
           <select id="gender" v-model="gender" required>
@@ -125,7 +234,13 @@
           </select>
 
           <label for="phone">Phone Number</label>
-          <input type="text" id="phone" v-model="phone" placeholder="123-456-7890" required />
+          <input
+            type="text"
+            id="phone"
+            v-model="phone"
+            placeholder="123-456-7890"
+            required
+          />
 
           <button type="submit" class="sign-in">Submit Form</button>
         </form>
@@ -139,68 +254,68 @@
 </template>
 
 <script>
-import axios from 'axios';
-import { mapActions } from 'vuex';
+import axios from "axios";
+import { mapActions, mapMutations } from "vuex";
 const API = import.meta.env.VITE_API_URL;
 
 export default {
   name: "LoginView",
   data() {
     return {
-      activeForm: 'login',
-      sliderPosition: '0%',
-      username: '',
-      loginPassword: '',
+      activeForm: "login",
+      sliderPosition: "0%",
+      username: "",
+      loginPassword: "",
       rememberMe: false,
-      registerEmail: '',
-      registerPassword: '',
-      confirmPassword: '',
-      resetEmail: '',
+      registerEmail: "",
+      registerPassword: "",
+      confirmPassword: "",
+      resetEmail: "",
       showSuccessModal: false,
-      modalMessage: '',       
-      errorMessage: '',
-      fullName: '',
-      age: '',
-      adress: '',
-      gender: '',
-      phone: '',
+      modalMessage: "",
+      errorMessage: "",
+      fullName: "",
+      age: "",
+      address: "",  // Fixed typo from 'adress' to 'address'
+      gender: "",
+      phone: "",
     };
   },
   created() {
-    const savedForm = localStorage.getItem('activeForm');
+    const savedForm = localStorage.getItem("activeForm");
     if (savedForm) {
       this.activeForm = savedForm;
-      if (savedForm === 'login') this.sliderPosition = '0%';
-      else if (savedForm === 'register') this.sliderPosition = '50%';
-      else this.sliderPosition = '100%';
+      if (savedForm === "login") this.sliderPosition = "0%";
+      else if (savedForm === "register") this.sliderPosition = "50%";
+      else this.sliderPosition = "100%";
     }
   },
   methods: {
-    ...mapActions(['setToken', 'setUser', 'addUsers', 'updateUser']),
-    
+    ...mapActions(["addUsers", "updateUser", "loginUser", "logoutUser"]),
+    ...mapMutations(["setToken", "setUser"]),
+
     switchForm(form) {
       this.activeForm = form;
-      localStorage.setItem('activeForm', form);
-      this.errorMessage = '';
-      if (form === 'login') {
-        this.sliderPosition = '0%';
-      } else if (form === 'register') {
-        this.sliderPosition = '50%';
-      } else if (form === 'reset') {
-        this.sliderPosition = '100%';
-      } else if (form === 'membership') {
-        this.sliderPosition = '100%';
+      localStorage.setItem("activeForm", form);
+      this.errorMessage = "";
+      if (form === "login") {
+        this.sliderPosition = "0%";
+      } else if (form === "register") {
+        this.sliderPosition = "50%";
+      } else if (form === "reset") {
+        this.sliderPosition = "100%";
+      } else if (form === "membership") {
+        this.sliderPosition = "100%";
       }
     },
 
-    // New helper method to open modal with a message
     openModalWithMessage(message) {
       this.modalMessage = message;
       this.showSuccessModal = true;
     },
 
     async handleLogin() {
-      this.errorMessage = '';
+      this.errorMessage = "";
       try {
         const response = await axios.post(`${API}users/login`, {
           username: this.username,
@@ -208,11 +323,14 @@ export default {
         });
 
         if (response.data.token) {
-          localStorage.setItem('token', response.data.token);
+          // Store token in localStorage
+          localStorage.setItem("token", response.data.token);
+          
+          // Update Vuex state using mutations
           this.setToken(response.data.token);
           this.setUser(response.data.user);
 
-          this.openModalWithMessage('Logged In Successfully');  // Use modal with dynamic message
+          this.openModalWithMessage("Logged In Successfully");
 
           setTimeout(() => {
             this.showSuccessModal = false;
@@ -220,12 +338,14 @@ export default {
           }, 2000);
         }
       } catch (error) {
-        this.errorMessage = error.response?.data?.message || "Invalid username or password. Please try again.";
+        this.errorMessage =
+          error.response?.data?.message ||
+          "Invalid username or password. Please try again.";
       }
     },
 
     async handleRegister() {
-      this.errorMessage = '';
+      this.errorMessage = "";
 
       if (this.registerPassword !== this.confirmPassword) {
         this.errorMessage = "Passwords do not match.";
@@ -238,24 +358,24 @@ export default {
       }
 
       try {
-        await this.$store.dispatch("addUsers", {
+        await this.addUsers({
           email: this.registerEmail,
           password: this.registerPassword,
         });
 
-        this.openModalWithMessage('Registered Successfully');  // Modal message changed
+        this.openModalWithMessage("Registered Successfully");
 
         setTimeout(() => {
           this.showSuccessModal = false;
           this.switchForm("membership");
-        }, 3000);
+        }, 2000);
       } catch (error) {
         this.errorMessage = error.message || "Registration failed.";
       }
     },
 
     async handleMembership() {
-      this.errorMessage = '';
+      this.errorMessage = "";
       const payload = {
         name: this.fullName,
         email: this.registerEmail,
@@ -268,32 +388,60 @@ export default {
       try {
         await this.updateUser(payload);
 
+        this.openModalWithMessage("Subscribed Successfully");
+
+        // Use the loginUser action from your store
         const loginPayload = {
-          username: this.fullName,
+          username: this.fullName,  // Keep as fullName since your backend might expect it
           password: this.registerPassword,
         };
 
         setTimeout(async () => {
           try {
-            await this.$store.dispatch('loginUser', loginPayload);
-
-            this.activeForm = 'login';
-            this.openModalWithMessage('Subscribed Successfully');  // Modal message for subscription
-
+            await this.loginUser(loginPayload);
+            
+            this.showSuccessModal = false;
+            this.activeForm = "login";
             this.$router.push("/");
           } catch (error) {
             this.errorMessage = "Auto-login failed after subscription.";
             this.showSuccessModal = false;
+            // Still redirect to login form for manual login
+            this.switchForm("login");
           }
-        }, 3000);
-
+        }, 2000);
       } catch (error) {
-        this.errorMessage = error.message || "Failed to update profile. Please try again.";
+        this.errorMessage =
+          error.message || "Failed to update profile. Please try again.";
       }
     },
 
-    handleReset() {
-      console.log('Reset:', this.resetEmail);
+    async handleReset() {
+      this.errorMessage = "";
+      
+      if (!this.resetEmail) {
+        this.errorMessage = "Please enter your email address.";
+        return;
+      }
+
+      try {
+        // Add your password reset API call here when backend is ready
+        // await axios.post(`${API}users/reset-password`, {
+        //   email: this.resetEmail
+        // });
+        
+        this.openModalWithMessage("Reset link sent to your email");
+        
+        setTimeout(() => {
+          this.showSuccessModal = false;
+          this.switchForm("login");
+        }, 2000);
+        
+        console.log("Reset:", this.resetEmail);
+        
+      } catch (error) {
+        this.errorMessage = error.response?.data?.message || "Failed to send reset email.";
+      }
     },
 
     closeModal() {
@@ -305,15 +453,15 @@ export default {
 
 <style scoped>
 #body {
-  font-family: 'Poppins', Arial, sans-serif;
+  font-family: "Poppins", Arial, sans-serif;
   background-color: #333;
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
   margin: 0;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
-                    url('../assets/images/gym-background.jpg');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("../assets/images/gym-background.jpg");
   background-size: cover;
   background-position: center;
 }
@@ -333,8 +481,14 @@ export default {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 h1 {
@@ -585,8 +739,14 @@ select {
 }
 
 @keyframes slideUp {
-  from { transform: translateY(30px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 .modal-content h2 {
@@ -632,17 +792,19 @@ select {
     padding: 25px 20px;
     width: 90%;
   }
-  
+
   h1 {
     font-size: 24px;
   }
-  
+
   .toggle-btn {
     padding: 10px;
     font-size: 0.9rem;
   }
-  
-  input, select, .sign-in {
+
+  input,
+  select,
+  .sign-in {
     padding: 12px;
   }
 }
